@@ -31,29 +31,39 @@ const Hero = () => {
         />
       ))}
 
-      <div className="hero-overlay">
-        <div className="top-section">
-          <div className="header-div">
-            <img
-            className="header-logo"
-            src={logo}
-            alt="Logo of Shri Veda Vyasa Seva Trust (SVVST), Cherthala"
-            />
-            <p className="header-title">Shri Veda Vyasa Seva Trust, Cherthala</p>
+
+          <div className="hero-overlay">
+            <header className="hero-header">
+              <div className="hero-logo-lockup">
+                <img src={logo} alt="SVVST Logo" className="hero-logo-img" />
+                <span className="hero-trust-name">Shri Veda Vyasa Seva Trust</span>
+              </div>
+            </header>
+            <main className="hero-main">
+              <div className="hero-title-wrapper">
+                <h1 className="hero-title"><span className="accent-word">Building</span> a Better Tomorrow!</h1>
+              </div>
+              <nav className="hero-nav">
+                <a href="#mission-vision-values" className="hero-nav-item">
+                  <span>Ethos</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="nav-arrow"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="#events" className="hero-nav-item">
+                  <span>Events</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="nav-arrow"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="#founders" className="hero-nav-item">
+                  <span>Founders</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="nav-arrow"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="#contact-us" className="hero-nav-item">
+                  <span>Contact</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="nav-arrow"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </nav>
+            </main>
           </div>
-        </div>
-        <div className="middle-section">
-          <div className="middle-container">
-            <h1 className="hero-title">Building a Better Tomorrow!</h1>
-            <div className="button-container">
-              <a href="#mission-vision-values"><button className="hero-button"><span>Ethos</span></button></a>
-              <a href="#events"><button className="hero-button"><span>Events</span></button></a>
-              <a href="#founders"><button className="hero-button"><span>Founders</span></button></a>
-              <a href="#contact-us"><button className="hero-button"><span>Contact</span></button></a>
-            </div>
-            </div>
-        </div>
-      </div>
+
     </div>
   );
 };
