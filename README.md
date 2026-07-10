@@ -21,9 +21,9 @@ Welcome to the documentation for the Shri Veda Vyasa Seva Trust (SVVST) website.
 ## Scripts (from `package.json`)
 - The `package.json` in this project exposes the following npm scripts:
   ```powershell
-  npm run dev      #starts Vite dev server
-  npm run build    #builds production files into /dist
-  npm run preview  #preview the built site locally
+  npm run dev      # starts Vite dev server
+  npm run build    # builds production files into /dist
+  npm run preview  # preview the built site locally
   ```
 - Run these commands from the project root (where `package.json` is)
 
@@ -32,15 +32,15 @@ Requirements:
 - Node.js (recommend LTS 18+) and npm installed
 - Quickstart (Windows PowerShell):
   ```powershell
-  npm install #to install dependencies
-  npm run dev #start dev server
+  npm install # to install dependencies
+  npm run dev # start dev server
   ```
 - Open the dev server URL printed by Vite (usually http://localhost:5173) and edit files under `src/` - hot module replacement (HMR) will update the browser
 
 ## Build & preview
 - To produce production assets:
   ```powershell
-  npm run build #This produces a `dist/` folder containing static files ready to be hosted 
+  npm run build # This produces a `dist/` folder containing static files ready to be hosted 
   ```
 - You can preview the production build locally with:
   ```powershell
