@@ -22,11 +22,7 @@ a {
     text-decoration: none;
 }
 
-.horizontal-divider {
-    height: 1px;
-    border-width:0; 
-    background-color:gray
-}
+
 
 /* Scrollbar styling */
 /* Target the entire scrollbar */
@@ -127,8 +123,8 @@ a {
 }
 
 .hero-overlay .hero-logo-img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: clamp(3rem, 10vw, 5rem);
+  height: clamp(3rem, 10vw, 5rem);
   object-fit: contain;
 }
 
@@ -162,7 +158,7 @@ a {
 
 .hero-overlay .hero-title {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -176,33 +172,37 @@ a {
 }
 
 .hero-overlay .hero-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
   .hero-overlay .hero-nav {
+    display: flex;
     flex-direction: column;
     align-items: flex-end;
+    width: auto;
     padding-bottom: 0.5rem;
   }
 }
 
 .hero-overlay .hero-nav-item {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9rem, 2vw, 1.25rem);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: whitesmoke;
   text-decoration: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1rem;
   border-radius: 100px;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.75rem;
+  justify-content: space-between;
+  gap: 0.5rem;
   background: rgba(242, 122, 26, 0.15);
   border: 1px solid rgba(242, 122, 26, 0.3);
 }
@@ -226,424 +226,607 @@ a {
 }
 
 
-/* Mission, Vision, Values or Ethos Section */
-.MiViVa-main-div {
-    color: whitesmoke;
-    padding: 1rem 1rem 2rem 1rem;
-    background-color: #161718;
-    user-select: none;
+/* Ethos Section */
+.ethos-section {
+  background-color: #161718;
+  color: whitesmoke;
+  padding: clamp(6rem, 15vw, 12rem) clamp(1.5rem, 5vw, 4rem);
+  user-select: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.MiViVa-h1 {
-    font-family: "Oswald", sans-serif;
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 1rem;
+.ethos-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4rem;
 }
 
-.MiViVa-card-container {
-    display: flex;  
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+@media (min-width: 1024px) {
+  .ethos-container {
+    grid-template-columns: 4fr 5fr;
+    gap: 8rem;
+    align-items: start;
+  }
+  
+  .ethos-manifesto {
+    position: sticky;
+    top: clamp(6rem, 10vh, 10rem);
+  }
 }
 
-.MiViVa-card {
-    background-color: #1E2125;
-    max-width: fit-content;
-    width: 450px;
-    min-height: 100%;
-    border-radius: 15px;
-    flex: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Oswald', sans-serif;
-    padding: 1rem;
-    transition: transform 400ms ease-in-out;
+.ethos-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: whitesmoke;
+  margin-bottom: 2rem;
 }
 
-.MiViVa-card-icon {
-    font-size: 3.5rem;
-    transition: transform 400ms ease-in-out;
+.ethos-title .highlight {
+  color: #F27A1A;
+  display: block;
 }
 
-.MiViVa-card:hover .MiViVa-card-icon {
-  transform: scale(1.1);
+.ethos-intro {
+  font-family: "Titillium Web", sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 300;
+  color: #a0a0a0;
+  line-height: 1.5;
+  max-width: 30ch;
 }
 
-.MiViVa-card-h2 {
-    margin-bottom: 0.5rem;
-    font-size: 2rem;
+.ethos-details {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 8vw, 6rem);
+  padding-top: 1rem;
 }
 
-.MiViVa-card-p {
-    color: #CCCCCC;
-    font-size: 1rem;
-    font-family: "Titillium Web", sans-serif;
+.ethos-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-.MiViVa-card:hover {
-    transform: scale(1.03);
-}
-
-/* Responsive Design */
-/* Phones */
-@media (max-width: 480px) {
-    .MiViVa-card-container {
-        flex-direction: column;
-    }
-}
-
-/* Tablets */
-@media (min-width: 480px) and (max-width: 991px) {
-}
-
-/* Desktops */
-@media (min-width: 1200px) {
-}
-
-/* Events Section */
-.events-main-div {
-    user-select: none;
-    background-color: hsla(210, 4%, 9%, 1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 0.75rem;
-    gap: 0.75rem;
-    padding-bottom: 1.5rem;
-}
-
-.events-heading1 {
-    font-family: "Oswald", sans-serif;
-    font-size: 3rem;
-    color: whitesmoke;
-    margin: 0.25rem 0 0.25rem 0;
-}
-
-.event-card-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-}
-
-.event-card {
-    background-color: hsl(213, 11%, 13%);
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    overflow: hidden;
-    transition: transform 250ms ease-in-out, box-shadow 250ms ease-in-out;
-    padding-bottom: 1rem;
-    max-width: 450px;
-}
-
-.event-card:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-    outline: 1px solid #F27A1A;
-}
-
-.card-text-section {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem;
-    text-align: center;
-}
-
-.event-card h2 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.5rem;
-    color: whitesmoke;
-}
-
-.event-card p {
-    font-family: 'Titillium Web', sans-serif;
-    font-size: 0.95rem;
-    font-weight: 300;
-    color: #cccccc;
-    line-height: 1.4;
-}
-
-.event-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-}
-
-.card-button {
-    position: relative;
-    border-radius: 4px;
-    border: none;
-    cursor: pointer;
-    padding: 0.35rem;
-    color: whitesmoke;
-    background-color: #F27A1A;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.05rem;
-    transition: 150ms ease;
-}
-
-.card-button:hover {
-    background-color: #d3d3d4;
-    color: black;
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
+.ethos-label {
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 10;
-}
-
-.modal-content {
-  background: #1f1f1f;
-  color: whitesmoke;
-  padding: 1rem;
-  border-radius: 8px;
-  max-width: 70vw;
-  text-align: center;
-  font-family: "Titillium Web", sans-serif;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.modal-sameline {
-    display: inline-flex;
-    gap: 1rem;
-    justify-content: center;
-    align-content: center;
-    margin-bottom: 0.75rem;
-}
-
-.modal-close-icon {
-    font-size: 1.75rem;
-    cursor: pointer;
-}
-
-.modal-image-div {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin: 0 0 1rem 0;
-}
-
-.modal-event-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    align-items: center;
-}
-
-/* Responsive Design */
-/* Phones */
-@media (max-width: 480px) {
-    .events-main-div h1 {
-        font-size: 2.75rem;
-    }
-
-    .event-card {
-        max-width: 90vw;
-    }
-
-    .event-img {
-        width: 100%;
-        height: auto;
-    }
-
-    .card-text-section {
-        padding: 0.75rem;
-    }
-
-    .modal-content {
-        max-height: 85vh;
-        max-width: 85vw;
-    }
-}
-
-/* Tablets */
-@media (min-width: 480px) and (max-width: 991px) {
-}
-
-/* Desktops */
-@media (min-width: 1200px) {
-}
-
-/* Founders or Founding Trustees Section */
-.founders-main-div {
-    user-select: none;  
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.founders-main-div h1 {
-    color: whitesmoke;
-    font-family: 'Oswald', sans-serif;
-    user-select: none;
-    margin-bottom: 0.5rem;
-    font-size: 2.75rem;
-    text-align: center;
-    margin-top: 0.75rem;
-}
-
-.founders-main-div img {
-    width: 650px;
-    margin-bottom: 3rem;
-    border-radius: 5px;
-}
-
-/* Responsive Design */
-/* Phones */
-@media (max-width: 480px) {
-    .founders-main-div h1 {
-        font-size: 2.15rem;
-    }
-
-    .founders-main-div img {
-        max-width: 85vw;
-    }
-}
-
-/* Tablets */
-@media (min-width: 481px) and (max-width: 991px) {
-    .founders-main-div img {
-        max-width: 75vw;
-    }
-}
-
-/* Contact Us Section */
-.contact-us-main-div {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 0.75rem;
-    padding-bottom: 1.25rem;
-    background-color: hsla(210, 4%, 9%, 1);
-    color: whitesmoke;
-    font-family: "Titillium Web", sans-serif;
-}
-
-.contact-us-main-div h1 {
-    user-select: none;
-    margin-bottom: 0.50rem;
-    font-family: "Oswald", sans-serif;
-    font-size: 2.75rem;
-    color: whitesmoke;
-}
-
-.contact-us-main-div p {
-    font-family: "Titillium Web", sans-serif;
-    font-size: 1rem;
-    color: whitesmoke;
-}
-
-.contact-us-internal-div {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.75rem;
-}
-
-.contact-us-text-div {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 450px;
-    min-width: 225px;
-    background-color: #1E2125;
-    padding: 1rem;
-    border-radius: 5px;
-}
-
-.contact-us-text-div img {
-    width: 150px;
-    border-radius: 5px;
-    margin-bottom: 0.25rem;
-}
-
-.contact-us-title {
-    color: #CCCCCC;
-    font-weight: 300;
-}
-
-.phone-number-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.phone-link p,
-.phone-icon {
-  color: whitesmoke;
-  transition: color 250ms ease;
-}
-
-.phone-link:hover p,
-.phone-link:hover .phone-icon {
+  gap: 1rem;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
   color: #F27A1A;
 }
 
-.address-div p {
-    text-align: center;
+.ethos-label::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 2px;
+  background-color: #F27A1A;
 }
 
-.address-h1 {
-    margin-bottom: 0 !important;
+.ethos-text {
+  font-family: "Titillium Web", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  font-weight: 300;
+  line-height: 1.4;
+  color: whitesmoke;
+  text-wrap: pretty;
 }
 
-/* Responsive Design */
-/* Phones */
-@media (max-width: 480px) {
-    .contact-us-main-div h1 {
-        font-size: 2.5rem;
-    }
-
-    .contact-us-internal-div {
-        flex-direction: column;
-    }
-
-    .address-div .address-h1 {
-        font-size: 2.15rem;
-        text-align: center;
-    }
+.ethos-values-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem 1.5rem;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 400;
+  color: whitesmoke;
+  margin-top: 0.5rem;
 }
 
-/* Tablets */
-@media (min-width: 481px) and (max-width: 991px) {
-    .contact-us-internal-div {
-        flex-wrap: wrap;
-    }
+@media (min-width: 768px) {
+  .ethos-values-list {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
 }
 
-/* Copyright Section */
-.copyright-sec {
-    user-select: none;
-    font-family: "Oswald", sans-serif;
-    font-weight: 300;
-    text-align: center;
-    font-size: 1rem;
-    padding: 0.3rem 2rem;
-    color: whitesmoke;
-    background-color: hsla(210, 4%, 9%, 1);
+.ethos-values-list li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.ethos-values-list li::before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.3s ease;
+}
+
+.ethos-values-list li:hover::before {
+  color: #F27A1A;
+}
+
+/* Events Section */
+.events-section {
+  background-color: #161718;
+  padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+}
+
+.events-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+.events-header {
+  text-align: center;
+}
+
+.events-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: whitesmoke;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.event-card {
+  background-color: #1E2125;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid transparent;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), border-color 400ms ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(242, 122, 26, 0.3);
+}
+
+.event-card-img-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+
+.event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-card:hover .event-img {
+  transform: scale(1.05);
+}
+
+.event-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.event-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.event-card-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.5rem;
+  color: whitesmoke;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.event-card-meta {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 0.9rem;
+  color: #F27A1A;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.event-card-desc {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1rem;
+  color: #cccccc;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.event-card-footer {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  color: whitesmoke;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.5rem 0;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.btn-secondary:hover {
+  color: #F27A1A;
+}
+
+/* Modal CSS */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(22, 23, 24, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: clamp(1rem, 4vw, 2rem);
+  opacity: 0;
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: #1E2125;
+  width: 100%;
+  max-width: 1000px;
+  max-height: 90vh;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+  transform: translateY(20px) scale(0.98);
+  animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes modalSlideUp {
+  to { transform: translateY(0) scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.modal-title {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.75rem;
+  color: whitesmoke;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: whitesmoke;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(242, 122, 26, 0.2);
+  color: #F27A1A;
+}
+
+.modal-body {
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.modal-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.modal-gallery-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+.modal-footer {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn-primary {
+  background: #F27A1A;
+  color: whitesmoke;
+  font-family: "Oswald", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: #f1a363;
+  color: #161718;
+}
+
+/* Founders Section */
+.founders-section {
+  background-color: #161718;
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.founders-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 4rem);
+  align-items: center;
+}
+
+.founders-header {
+  text-align: center;
+}
+
+.founders-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: whitesmoke;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.founders-image-wrapper {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.founders-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.founders-image-wrapper:hover .founders-img {
+  transform: scale(1.02);
+}
+
+/* Contact Us Section */
+.contact-section {
+  background-color: #1E2125;
+  padding: clamp(3rem, 5vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(3rem, 6vw, 4rem);
+}
+
+.contact-header {
+  text-align: center;
+}
+
+.contact-title {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(3rem, 6vw, 5rem);
+  color: whitesmoke;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+}
+
+.contact-subtitle {
+  font-family: "Titillium Web", sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 300;
+  color: #CCCCCC;
+  line-height: 1.4;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.contact-avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid #161718;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+}
+
+.contact-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.contact-profile:hover .contact-avatar img {
+  transform: scale(1.05);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.contact-name {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.75rem;
+  color: whitesmoke;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.contact-role {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.1rem;
+  color: #a0a0a0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  color: whitesmoke;
+  text-decoration: none;
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.contact-link:hover {
+  color: #F27A1A;
+}
+
+.contact-icon {
+  color: #F27A1A;
+  font-size: 1.2rem;
+}
+
+.contact-address-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 2rem;
+  background-color: #161718;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.contact-address {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1.1rem;
+  color: #cccccc;
+  line-height: 1.8;
+  font-style: normal;
+}
+
+/* Footer Section */
+.footer-section {
+  background-color: #0f1011;
+  padding: clamp(2rem, 3vw, 3rem) clamp(1.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.copyright-text, .copyright-credits {
+  font-family: "Titillium Web", sans-serif;
+  font-size: 1rem;
+  color: #888888;
+  margin: 0;
 }

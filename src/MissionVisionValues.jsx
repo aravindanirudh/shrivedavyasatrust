@@ -1,31 +1,51 @@
 import "./styles/index.css";
-import { FaEye } from "react-icons/fa";
-import { GiBullseye } from "react-icons/gi";
-import { IoDiamond } from "react-icons/io5";
 
 const MissionVisionValues = () => {
   return (
-    <div className="MiViVa-main-div" id="mission-vision-values">
-        <h1 className="MiViVa-h1">Ethos</h1>
-        <div className="MiViVa-card-container">
-            <div className="MiViVa-card">
-                <FaEye className="MiViVa-card-icon"/>
-                <h2 className="MiViVa-card-h2">Our Mission</h2>
-                <p className="MiViVa-card-p">To serve society through quality education, skill development, financial assistance, healthcare, moral and spiritual growth, child welfare, elderly care, and disaster relief, ensuring holistic upliftment of the community.</p>
-            </div>
-            <div className="MiViVa-card">
-                <GiBullseye className="MiViVa-card-icon"/>
-                <h2 className="MiViVa-card-h2">Our Vison</h2>
-                <p className="MiViVa-card-p">To build an empowered, compassionate, and self-reliant community where every person has access to education, livelihood, healthcare, and dignified living.</p>
-            </div>
-            <div className="MiViVa-card">
-                <IoDiamond className="MiViVa-card-icon"/>
-                <h2 className="MiViVa-card-h2">Our Values</h2>
-                <p className="MiViVa-card-p">Compassion • Integrity • Equity • Empowerment • Service • Sustainability • Collaboration</p>
-            </div>
+    <section className="ethos-section" id="mission-vision-values">
+      <div className="ethos-container">
+        
+        <div className="ethos-manifesto">
+          <h2 className="ethos-title">
+            The <span className="highlight">Ethos</span>
+          </h2>
+          <p className="ethos-intro">
+            Driven by compassion. Grounded in service. A commitment to holistic community upliftment.
+          </p>
         </div>
-    </div>
-  )
+
+        <div className="ethos-details">
+          <div className="ethos-block">
+            <span className="ethos-label">Our Mission</span>
+            <p className="ethos-text">
+              To serve society through quality education, skill development, financial assistance, healthcare, moral and spiritual growth, child welfare, elderly care, and disaster relief.
+            </p>
+          </div>
+          
+          <div className="ethos-block">
+            <span className="ethos-label">Our Vision</span>
+            <p className="ethos-text">
+              To build an empowered, compassionate, and self-reliant community where every person has access to education, livelihood, healthcare, and dignified living.
+            </p>
+          </div>
+
+          <div className="ethos-block">
+            <span className="ethos-label">Core Values</span>
+            <ul className="ethos-values-list">
+              <li>Compassion</li>
+              <li>Integrity</li>
+              <li>Equity</li>
+              <li>Empowerment</li>
+              <li>Service</li>
+              <li>Sustainability</li>
+              <li>Collaboration</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
 }
 
-export default MissionVisionValues
+export default MissionVisionValues;

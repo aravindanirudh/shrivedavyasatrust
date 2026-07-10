@@ -8,19 +8,13 @@ import Copyright from "./Copyright.jsx"
 
 function App() {
   return (
-    <div>
+    <div className="app-container">
       <Hero/>
-      <hr className="horizontal-divider"/>
       <MissionVisionValues/>
-      <hr className="horizontal-divider"/>
       <Events/>
-      <hr className="horizontal-divider"/>
       <Founders/>
-      <hr className="horizontal-divider"/>
       <ContactUs/>
-      <hr className="horizontal-divider"/>
       <Copyright/>
-      <hr className="horizontal-divider"/>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import {useEffect, useState} from 'react'
 import './styles/index.css';
-import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoCloseOutline, IoImagesOutline } from "react-icons/io5";
 import events from './assets/event_data.json';
 import upcomingEvent from './assets/event-images/upcoming_event.avif';
 import event0_thumbnail from './assets/event-images/event0_thumbnail.avif';
@@ -33,6 +33,7 @@ const imageMap = {
 const Events = () => {
 
   const [selectedEvent, setSelectedEvent] = useState(null);
+  
   const openModal = (event) => setSelectedEvent(event);
   const closeModal = () => setSelectedEvent(null);
 
@@ -42,49 +43,79 @@ const Events = () => {
     } else {
       document.body.style.overflow = 'auto';
     }
-    // Cleanup when component unmounts
     return () => {
       document.body.style.overflow = 'auto';
     };
   }, [selectedEvent]);
 
+  // Handle escape key to close modal
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') closeModal();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, []);
 
   return (
-     <div className="events-main-div" id="events">
-      <h1 className="events-heading1">Events</h1>
-      <div className="event-card-container">
-        {events.map((event, index) => (
-          <div className="event-card" key={index}>
-            <img loading="lazy" src={imageMap[event.thumbnail_img]} alt={`${event.title} event image at Shri Veda Vyasa Seva Trust (SVVST), Cherthala`} className="event-img"/>
-            <div className="card-text-section">
-              <h2>{event.title}</h2>
-              <p>Date: {event.date}</p>
-              <p>Time: {event.time}</p>
-              <p>{event.description}</p>
-            </div>
-            <button className="card-button" onClick={() => openModal(event)}>Gallery</button>
-          </div>
-        ))}
+     <section className="events-section" id="events">
+      <div className="events-container">
+        
+        <header className="events-header">
+          <h2 className="events-title">Events</h2>
+        </header>
+
+        <div className="events-grid">
+          {events.map((event, index) => (
+            <article className="event-card" key={index}>
+              <div className="event-card-img-wrapper">
+                <img loading="lazy" src={imageMap[event.thumbnail_img]} alt={`${event.title} thumbnail`} className="event-img"/>
+              </div>
+              <div className="event-card-content">
+                <header className="event-card-header">
+                  <span className="event-card-meta">{event.date} • {event.term}</span>
+                  <h3 className="event-card-title">{event.title}</h3>
+                </header>
+                <p className="event-card-desc">{event.description}</p>
+                <footer className="event-card-footer">
+                  <button className="btn-secondary" onClick={() => openModal(event)}>
+                    <IoImagesOutline size={18} /> View Gallery
+                  </button>
+                </footer>
+              </div>
+            </article>
+          ))}
+        </div>
+
       </div>
+
       {selectedEvent && (
         <div className="modal-overlay" onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-sameline">
-              <h2>{selectedEvent.title}</h2>
-              <IoIosCloseCircleOutline class="modal-close-icon" onClick={closeModal}/>
+            <div className="modal-header">
+              <h3 className="modal-title">{selectedEvent.title}</h3>
+              <button className="modal-close-btn" onClick={closeModal} aria-label="Close modal">
+                <IoCloseOutline size={24} />
+              </button>
             </div>
-            <div className="modal-image-div">
-              {selectedEvent.images?.map((imgPath, index) => (
-                <img loading="lazy" key={index} src={imageMap[imgPath]} alt={`${selectedEvent.title} image ${index + 1}`}  className="modal-event-img"/>
-              ))}
+            
+            <div className="modal-body">
+              <div className="modal-gallery">
+                {selectedEvent.images?.map((imgPath, index) => (
+                  <img loading="lazy" key={index} src={imageMap[imgPath]} alt={`${selectedEvent.title} image ${index + 1}`} className="modal-gallery-img"/>
+                ))}
+              </div>
             </div>
-            <a target="_blank" href={selectedEvent.galleryLink}>
-              <button className="card-button">More Photos</button>
-            </a>
+
+            <div className="modal-footer">
+              <a target="_blank" rel="noopener noreferrer" href={selectedEvent.galleryLink} className="btn-primary">
+                More Photos
+              </a>
+            </div>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 
